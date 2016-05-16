@@ -101,7 +101,8 @@ func (d *Date) init() {
 	if d.inited {
 		return
 	}
-	d.time = time.Date(d.time.Year(), d.time.Month(), d.time.Day(), 0, 0, 0, 0, d.time.Location())
+	// Ignore time location
+	d.time = time.Date(d.time.Year(), d.time.Month(), d.time.Day(), 0, 0, 0, 0, time.UTC)
 	d.inited = true
 }
 
